@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:shopping_bloc/models/category_model_model.dart';
+import 'package:shopping_bloc/models/category_item_model.dart';
 
 class ProductDetailsModel {
   String id;
@@ -10,7 +10,7 @@ class ProductDetailsModel {
   String description;
   String brand;
   List<String> images;
-  CategoryModel category;
+  CategoryItemModel category;
 
   ProductDetailsModel({
     required this.id,
@@ -47,7 +47,7 @@ class ProductDetailsModel {
       description: map['description'] as String,
       brand: map['brand'] as String,
       images: List<String>.from((map['images'] as List<String>)),
-      category: CategoryModel.fromMap(map['category'] as Map<String,dynamic>),
+      category: CategoryItemModel.fromMap(map['category'] as Map<String,dynamic>),
     );
   }
 

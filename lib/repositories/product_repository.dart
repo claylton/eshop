@@ -1,25 +1,25 @@
 
 import 'package:dio/dio.dart';
 import 'package:shopping_bloc/models/product_details_model.dart';
-import 'package:shopping_bloc/models/product_list_item_model.dart';
+import 'package:shopping_bloc/models/product_item_model.dart';
 import 'package:shopping_bloc/settings/settings.dart';
 
 class ProductRepository {
-  Future<List<ProductListItemModel>> getAll() async {
+  Future<List<ProductItemModel>> getAll() async {
     String url = "${Settings.apiUrl}/v1/products";
     Response response = await Dio().get(url);
 
     return (response.data as List)
-      .map((course) => ProductListItemModel.fromJson(course))
+      .map((course) => ProductItemModel.fromJson(course))
       .toList();
   }
 
-  Future<List<ProductListItemModel>> getByCategory(String category) async {
+  Future<List<ProductItemModel>> getByCategory(String category) async {
     String url = "${Settings.apiUrl}/v1/categories/$category/products";
     Response response = await Dio().get(url);
     
     return (response.data as List)
-      .map((course) => ProductListItemModel.fromJson(course))
+      .map((course) => ProductItemModel.fromJson(course))
       .toList();
   }
 
