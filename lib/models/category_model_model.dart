@@ -11,7 +11,7 @@ class CategoryModel {
     required this.tag,
   });
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> _toMap() {
     return <String, dynamic>{
       'id': id,
       'title': title,
@@ -19,7 +19,7 @@ class CategoryModel {
     };
   }
 
-  factory CategoryModel.fromMap(Map<String, dynamic> map) {
+  factory CategoryModel._fromMap(Map<String, dynamic> map) {
     return CategoryModel(
       id: map['id'] as String,
       title: map['title'] as String,
@@ -27,7 +27,7 @@ class CategoryModel {
     );
   }
 
-  String toJson() => json.encode(toMap());
+  String toJson() => json.encode(_toMap());
 
-  factory CategoryModel.fromJson(String source) => CategoryModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory CategoryModel.fromJson(String source) => CategoryModel._fromMap(json.decode(source) as Map<String, dynamic>);
 }
