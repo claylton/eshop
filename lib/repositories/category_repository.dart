@@ -4,7 +4,7 @@ import 'package:shopping_bloc/models/category_item_model.dart';
 import 'package:shopping_bloc/settings/settings.dart';
 
 class CategoryRepository {
-  Future<List<CategoryItemModel>> getAll() async {
+  Future<List<CategoryItemModel>> get getAll async {
     String url = "${Settings.apiUrl}/v1/categories";
     Response response = await Dio().get(url);
 
