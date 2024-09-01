@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class UserModel {
   int id;
   String name;
@@ -19,7 +17,7 @@ class UserModel {
     required this.token,
   });
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return <String, dynamic>{
       'id': id,
       'name': name,
@@ -31,7 +29,7 @@ class UserModel {
     };
   }
 
-  factory UserModel.fromMap(Map<String, dynamic> map) {
+  factory UserModel.fromJson(Map<String, dynamic> map) {
     return UserModel(
       id: map['id'] as int,
       name: map['name'] as String,
@@ -42,8 +40,4 @@ class UserModel {
       token: map['token'] as String,
     );
   }
-
-  String toJson() => json.encode(toMap());
-
-  factory UserModel.fromJson(String source) => UserModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }

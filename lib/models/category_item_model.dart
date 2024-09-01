@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class CategoryItemModel {
   String id;
   String title;
@@ -11,7 +9,7 @@ class CategoryItemModel {
     required this.tag,
   });
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return <String, dynamic>{
       'id': id,
       'title': title,
@@ -19,15 +17,11 @@ class CategoryItemModel {
     };
   }
 
-  factory CategoryItemModel.fromMap(Map<String, dynamic> map) {
+  factory CategoryItemModel.fromJson(Map<String, dynamic> map) {
     return CategoryItemModel(
       id: map['id'] as String,
       title: map['title'] as String,
       tag: map['tag'] as String,
     );
   }
-
-  String toJson() => json.encode(toMap());
-
-  factory CategoryItemModel.fromJson(String source) => CategoryItemModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }

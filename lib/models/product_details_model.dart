@@ -34,7 +34,7 @@ class ProductDetailsModel {
       'description': description,
       'brand': brand,
       'images': images,
-      'category': category.toMap(),
+      'category': category.toJson(),
     };
   }
 
@@ -47,7 +47,7 @@ class ProductDetailsModel {
       description: map['description'] as String,
       brand: map['brand'] as String,
       images: List<String>.from((map['images'] as List<String>)),
-      category: CategoryItemModel.fromMap(map['category'] as Map<String,dynamic>),
+      category: CategoryItemModel.fromJson(map['category'] as Map<String,dynamic>),
     );
   }
 
