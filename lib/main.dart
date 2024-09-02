@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_bloc/blocs/home_bloc.dart';
+import 'package:shopping_bloc/ui/shared/widgets/category/category_list_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider<HomeBloc>.value(value: HomeBloc())
-      ],
+      providers: [ChangeNotifierProvider<HomeBloc>.value(value: HomeBloc())],
       child: const Main(),
     );
   }
@@ -38,15 +37,28 @@ class Main extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
-  const HomePage({ super.key });
+  @override
+  Widget build(BuildContext context) {
+    final HomeBloc bloc = Provider.of<HomeBloc>(context);
 
-   @override
-   Widget build(BuildContext context) {
-       return const Scaffold(
-           body: Center(
-            child: Text("Shopping Cart"),
-           ),
-       );
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const SizedBox(height: 60),
+            Text(
+              "Categorias",
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+            const SizedBox(height: 10),
+            CategoryListWidget(categoriesList: bloc.categories),
+          ],
+        ),
+      ),
+    );
   }
 }

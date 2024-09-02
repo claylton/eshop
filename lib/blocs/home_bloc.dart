@@ -8,8 +8,8 @@ class HomeBloc extends ChangeNotifier {
   final CategoryRepository categoryRepository = CategoryRepository();
   final ProductRepository productRepository = ProductRepository();
 
-  late List<ProductItemModel> products;
-  late List<CategoryItemModel> categories;
+  List<ProductItemModel>? products;
+  List<CategoryItemModel>? categories;
   String selectCategory = 'todos';
 
   HomeBloc() {
@@ -25,7 +25,7 @@ class HomeBloc extends ChangeNotifier {
 
   changeCategory(tag) {
     selectCategory = tag;
-    products.clear();
+    products?.clear();
     getProductsByCategory;
     notifyListeners();
   }
