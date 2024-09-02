@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_bloc/blocs/home_bloc.dart';
-import 'package:shopping_bloc/ui/shared/widgets/category/category_list_widget.dart';
+import 'package:shopping_bloc/ui/android/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,33 +32,6 @@ class Main extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final HomeBloc bloc = Provider.of<HomeBloc>(context);
-
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const SizedBox(height: 60),
-            Text(
-              "Categorias",
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
-            const SizedBox(height: 10),
-            CategoryListWidget(categoriesList: bloc.categories),
-          ],
-        ),
-      ),
     );
   }
 }
