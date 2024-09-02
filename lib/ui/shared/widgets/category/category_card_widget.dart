@@ -19,7 +19,11 @@ class CategoryCardWidget extends StatelessWidget {
       margin: const EdgeInsets.all(5),
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
-          color: item.tag == bloc.selectCategory ? Theme.of(context).primaryColor.withOpacity(0.3) : Theme.of(context).primaryColor, borderRadius: BorderRadius.circular(70)),
+        color: item.tag == bloc.selectCategory 
+          ? Theme.of(context).primaryColor.withOpacity(0.3) 
+          : Theme.of(context).primaryColor,
+        borderRadius: BorderRadius.circular(70),
+      ),
       child: TextButton(
         onPressed: () => bloc.changeCategory(item.tag),
         child: Image.asset("assets/categories/${Settings.theme}/${item.tag}.png"),
