@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         child: ListView(
           children: [
-            const SizedBox(height: 60),
+            const SizedBox(height: 10),
             Text(
               "Categorias",
               style: Theme.of(context).textTheme.headlineSmall,

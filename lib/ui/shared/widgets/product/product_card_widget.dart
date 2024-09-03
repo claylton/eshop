@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 
 import 'package:shopping_bloc/models/product_item_model.dart';
 import 'package:shopping_bloc/ui/android/pages/product_page.dart';
+import 'package:shopping_bloc/ui/shared/widgets/shared/add_to_cart_widget.dart';
 
 class ProductCardWidget extends StatelessWidget {
   final ProductItemModel item;
@@ -95,7 +96,8 @@ class ProductCardWidget extends StatelessWidget {
                       color: Theme.of(context).primaryColor,
                     ),
                   ),
-                )
+                ),
+                AddToCartWidget(item: item)
               ],
             ),
           ),

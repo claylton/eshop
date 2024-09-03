@@ -17,6 +17,7 @@ class CartBloc extends ChangeNotifier {
 
   remove(CartItemModel item) {
     cart.removeWhere((element) => element.id == item.id);
+    calculateTotal();
   }
 
   bool itemInCart(CartItemModel item) {
