@@ -23,7 +23,7 @@ class ProductRepository {
       .toList();
   }
 
-  Future<ProductDetailsModel> get(String tag) async {
+  Future<ProductDetailsModel> getProductDetails(String tag) async {
     String url = "${Settings.apiUrl}/v1/products/$tag";
     Response response = await Dio().get(url);
     

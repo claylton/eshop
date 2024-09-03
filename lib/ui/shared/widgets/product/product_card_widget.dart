@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import 'package:shopping_bloc/models/product_item_model.dart';
+import 'package:shopping_bloc/ui/android/pages/product_page.dart';
 
 class ProductCardWidget extends StatelessWidget {
   final ProductItemModel item;
@@ -26,16 +27,28 @@ class ProductCardWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: 240,
-            height: 240,
-            decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.05),
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(5),
-                  topRight: Radius.circular(5),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProductPage(
+                    tag: item.tag,
+                  ),
                 ),
-                image: DecorationImage(image: NetworkImage(item.image))),
+              );
+            },
+            child: Container(
+              width: 240,
+              height: 240,
+              decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.05),
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(5),
+                    topRight: Radius.circular(5),
+                  ),
+                  image: DecorationImage(image: NetworkImage(item.image))),
+            ),
           ),
           const SizedBox(height: 10),
           Container(

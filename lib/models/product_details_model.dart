@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:shopping_bloc/models/category_item_model.dart';
 
 class ProductDetailsModel {
@@ -25,7 +23,7 @@ class ProductDetailsModel {
 
 
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return <String, dynamic>{
       'id': id,
       'title': title,
@@ -38,7 +36,7 @@ class ProductDetailsModel {
     };
   }
 
-  factory ProductDetailsModel.fromMap(Map<String, dynamic> map) {
+  factory ProductDetailsModel.fromJson(Map<String, dynamic> map) {
     return ProductDetailsModel(
       id: map['id'] as String,
       title: map['title'] as String,
@@ -46,12 +44,9 @@ class ProductDetailsModel {
       price: map['price'] as double,
       description: map['description'] as String,
       brand: map['brand'] as String,
-      images: List<String>.from((map['images'] as List<String>)),
+      //!Converte tipo List<String> para List<dynamic>
+      images: map['images'].cast<String>(),
       category: CategoryItemModel.fromJson(map['category'] as Map<String,dynamic>),
     );
   }
-
-  String toJson() => json.encode(toMap());
-
-  factory ProductDetailsModel.fromJson(String source) => ProductDetailsModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }
