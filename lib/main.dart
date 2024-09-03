@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopping_bloc/blocs/cart_bloc.dart';
 import 'package:shopping_bloc/blocs/home_bloc.dart';
 import 'package:shopping_bloc/ui/android/pages/tabs_page.dart';
 
@@ -13,7 +14,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider<HomeBloc>.value(value: HomeBloc())],
+      providers: [
+        ChangeNotifierProvider<HomeBloc>.value(value: HomeBloc()),
+        ChangeNotifierProvider<CartBloc>.value(value: CartBloc()),
+      ],
       child: const Main(),
     );
   }
