@@ -1,22 +1,22 @@
 class UserModel {
-  int id;
-  String name;
-  String email;
-  String image;
-  String username;
-  String password;
-  String role;
-  String token;
+  int? id;
+  String? name;
+  String? email;
+  String? image;
+  String? username;
+  String? password;
+  String? role;
+  String? token;
   
   UserModel({
-    required this.id,
-    required this.name,
-    required this.email,
-    required this.image,
-    required this.username,
-    required this.password,
-    required this.role,
-    required this.token,
+    this.id,
+    this.name,
+    this.email,
+    this.image,
+    this.username,
+    this.password,
+    this.role,
+    this.token,
   });
 
   Map<String, dynamic> toJson() {
