@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_bloc/ui/android/pages/login_page.dart';
-import 'package:shopping_bloc/ui/android/pages/signup_page.dart';
+import 'package:shopping_bloc/ui/android/pages/sign_up_page.dart';
 
 class UnauthenticatedUserCardWidget extends StatelessWidget {
   const UnauthenticatedUserCardWidget({super.key});
@@ -22,7 +22,7 @@ class UnauthenticatedUserCardWidget extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const SignupPage(),
+                builder: (context) => const SignUpPage(),
               ),
             );
           },

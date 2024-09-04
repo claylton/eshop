@@ -1,14 +1,14 @@
 class CreateUserModel {
-  String name;
-  String email;
-  String username;
-  String password;
+  String? name;
+  String? email;
+  String? username;
+  String? password;
   
   CreateUserModel({
-    required this.name,
-    required this.email,
-    required this.username,
-    required this.password,
+    this.name,
+    this.email,
+    this.username,
+    this.password,
   });
 
   Map<String, dynamic> toJson() {

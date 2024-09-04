@@ -14,9 +14,8 @@ class AccountRepository {
 
   Future<UserModel> create(CreateUserModel model) async {
     String url = "${Settings.apiUrl}/v1/account";
-    Response response = await Dio().post(url, data: model);
+    Response response = await Dio().post(url, data: model.toJson());
 
     return UserModel.fromJson(response.data);
   }
-
 }

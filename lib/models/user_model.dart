@@ -41,7 +41,7 @@ class UserModel {
       username: map['username'] as String,
       password: map['password'] as String,
       role: map['role'] as String,
-      token: map['token'] as String,
+      token: map['token'] as String?,
     );
   }
 }
