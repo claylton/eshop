@@ -10,10 +10,10 @@ class UnauthenticatedUserCardWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        SizedBox(height: 60),
+        const SizedBox(height: 60),
         TextButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
           },
           child: const Text("Autentique-se"),
         ),
@@ -22,11 +22,11 @@ class UnauthenticatedUserCardWidget extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => SignupPage(),
+                builder: (context) => const SignupPage(),
               ),
             );
           },
-          child: Text("Ainda não sou cadastrado"),
+          child: const Text("Ainda não sou cadastrado"),
         )
       ],
     );

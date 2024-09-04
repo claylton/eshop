@@ -12,7 +12,7 @@ class AuthenticatedUserCardWidget extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          const SizedBox(height: 20),
+          const SizedBox(height: 60),
           Container(
             width: 200,
             height: 200,
@@ -27,9 +27,9 @@ class AuthenticatedUserCardWidget extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          Text("Bem-vindo, ${bloc.user}"),
+          Text("Bem-vindo, ${bloc.user?.name}"),
           const SizedBox(height: 10),
-          TextButton(onPressed: bloc.logout(), child: const Text("Sair"))
+          TextButton(onPressed: bloc.logout, child: const Text("Sair"))
         ],
       ),
     );

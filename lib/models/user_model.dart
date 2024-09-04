@@ -1,5 +1,5 @@
 class UserModel {
-  int? id;
+  String? id;
   String? name;
   String? email;
   String? image;
@@ -34,7 +34,7 @@ class UserModel {
 
   factory UserModel.fromJson(Map<String, dynamic> map) {
     return UserModel(
-      id: map['id'] as int,
+      id: map['id'] as String,
       name: map['name'] as String,
       email: map['email'] as String,
       image: map['image'] as String,

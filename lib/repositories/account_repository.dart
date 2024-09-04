@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 import 'package:shopping_bloc/models/authenticate_user_model.dart';
 import 'package:shopping_bloc/models/create_user_model.dart';
@@ -8,7 +7,7 @@ import 'package:shopping_bloc/settings/settings.dart';
 class AccountRepository {
   Future<UserModel> authenticate(AuthenticateUserModel model) async {
     String url = "${Settings.apiUrl}/v1/account/login";
-    Response response = await Dio().post(url, data: model);
+    Response response = await Dio().post(url, data: model.toJson());
 
     return UserModel.fromJson(response.data);
   }

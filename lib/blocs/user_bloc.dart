@@ -48,7 +48,6 @@ class UserBloc extends ChangeNotifier {
   logout() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     await preferences.remove('user');
-    await preferences.clear();
     user = null;
     notifyListeners();
   }
